@@ -7,8 +7,10 @@
     "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
+    "test-once": "ng test --watch=false",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "ci": "npm run lint && npm run test-once"
   },
   "private": true,
   "dependencies": {
