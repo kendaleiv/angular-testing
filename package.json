@@ -10,7 +10,7 @@
     "test-once": "ng test --watch=false",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor config/protractor.conf.js",
-    "ci": "npm run lint && npm run test-once"
+    "ci": "npm-run-all -s lint test-once -p -r start e2e"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +39,7 @@
     "karma-chrome-launcher": "0.2.3",
     "karma-coverage": "^1.0.0",
     "karma-jasmine": "0.3.8",
+    "npm-run-all": "^2.3.0",
     "protractor": "3.3.0",
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
