@@ -8,9 +8,6 @@ describe('ResultsLogComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ResultsLogComponent
-      ],
-      providers: [
-        ResultsLogComponent
       ]
     });
   });

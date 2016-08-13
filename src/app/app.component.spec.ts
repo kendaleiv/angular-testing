@@ -28,7 +28,6 @@ describe('AppComponent', () => {
         AppComponent
       ],
       providers: [
-        AppComponent,
         provide(StockRetrieverService, { useClass: TestStockRetrieverService })
       ],
       imports: [

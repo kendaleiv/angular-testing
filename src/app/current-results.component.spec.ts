@@ -8,9 +8,6 @@ describe('CurrentResultsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         CurrentResultsComponent
-      ],
-      providers: [
-        CurrentResultsComponent
       ]
     });
   });
