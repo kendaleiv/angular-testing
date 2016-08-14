@@ -3,7 +3,7 @@ export class Angular2TestingPage {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+  getLabelText() {
+    return element(by.css('app-root label')).getText();
   }
 }

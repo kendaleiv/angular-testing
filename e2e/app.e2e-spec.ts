@@ -6,4 +6,10 @@ describe('angular2-testing App', function() {
   beforeEach(() => {
     page = new Angular2TestingPage();
   });
+
+  it('should display Stock Symbol label', () => {
+    page.navigateTo();
+
+    expect(page.getLabelText()).toContain('Stock Symbol');
+  });
 });
