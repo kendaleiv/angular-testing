@@ -2,20 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 
-import { CurrentResultsComponent } from './current-results.component';
-import { ResultsLogComponent } from './results-log.component';
 import { StockResult } from './stock-result';
 import { StockRetrieverService } from './stock-retriever.service';
 
-// TODO: Move directives into module declarations:
-// https://angular.io/docs/ts/latest/cookbook/rc4-to-rc5.html#!#5-cleanup
-// Leaving them as-is for now.
-
 @Component({
-  directives: [
-    CurrentResultsComponent,
-    ResultsLogComponent
-  ],
   providers: [
     StockRetrieverService
   ],

@@ -1,11 +1,13 @@
-import { provide } from '@angular/core';
 import { async, TestBed } from '@angular/core/testing';
-import { DeprecatedFormsModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { Observable } from 'rxjs';
 
 import { AppComponent } from './app.component';
+import { CurrentResultsComponent } from './current-results.component';
+import { ResultsLogComponent } from './results-log.component';
+
 import { StockRetrieverService } from './stock-retriever.service';
 import { StockResult } from './stock-result';
 
@@ -25,13 +27,15 @@ describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        CurrentResultsComponent,
+        ResultsLogComponent
       ],
       providers: [
-        provide(StockRetrieverService, { useClass: TestStockRetrieverService })
+        { provide: StockRetrieverService, useClass: TestStockRetrieverService }
       ],
       imports: [
-        DeprecatedFormsModule,
+        FormsModule,
         HttpModule
       ]
     });
