@@ -15,6 +15,5 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 install:
   - npm install
-  - npm install --save-dev angular-cli@webpack
 script:
   - npm run ci
