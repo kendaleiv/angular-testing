@@ -46,6 +46,12 @@ describe('StockRetrieverService (Mocked)', () => {
     });
   });
 
+  it('should construct', async(inject(
+    [StockRetrieverService, MockBackend], (service, mockBackend) => {
+
+    expect(service).toBeDefined();
+  })));
+
   describe('fetch', () => {
     const mockQuote = {
       LastTradePriceOnly: '123.45',
