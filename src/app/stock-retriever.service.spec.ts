@@ -4,7 +4,8 @@
 //
 
 import { async, inject, TestBed } from '@angular/core/testing';
-import { HttpModule } from '@angular/http';
+import { BaseRequestOptions, Http, HttpModule, Response, ResponseOptions } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
 
 import { StockRetrieverService } from './stock-retriever.service';
 
@@ -23,23 +24,90 @@ describe('StockRetrieverService', () => {
   it('should construct', async(inject([StockRetrieverService], (service) => {
     expect(service).toBeDefined();
   })));
+});
+
+describe('StockRetrieverService Mocked', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        StockRetrieverService,
+
+        MockBackend,
+        BaseRequestOptions,
+        {
+          provide: Http,
+          useFactory: (backend, options) => new Http(backend, options),
+          deps: [MockBackend, BaseRequestOptions]
+        }
+      ],
+      imports: [
+        HttpModule
+      ]
+    });
+  });
 
   describe('fetch', () => {
-    it('should return null when symbol not specified', async(inject([StockRetrieverService], (service) => {
+    const mockQuote = {
+      LastTradePriceOnly: '123.45',
+      symbol: 'TEST'
+    };
+
+    const mockResponse = {
+      query: {
+        created: new Date().toISOString(),
+        results: {
+          quote: mockQuote
+        }
+      }
+    };
+
+    it('should return null when symbol not specified', async(inject(
+      [StockRetrieverService, MockBackend], (service, mockBackend) => {
+
+      mockBackend.connections.subscribe(conn => {
+        throw new Error('No requests should be made.');
+      });
+
       const result = service.fetch(null);
 
       expect(result).toBeNull();
     })));
 
-/* TODO: Use MockBackend or similar for these tests:
-    it('should call expected endpoint', async(inject([StockRetrieverService], (service) => {
+    it('should parse response from endpoint', async(inject(
+      [StockRetrieverService, MockBackend], (service, mockBackend) => {
+
+      mockBackend.connections.subscribe(conn => {
+        conn.mockRespond(new Response(new ResponseOptions({ body: JSON.stringify(mockResponse) })));
+      });
+
+      const result = service.fetch(mockQuote.symbol);
+
+      result.subscribe(res => {
+        expect(res).toEqual({
+          lastTradePrice: 123.45,
+          symbol: mockQuote.symbol,
+          retrieved: mockResponse.query.created
+        });
+      });
     })));
 
-    it('should parse response from endpoint', async(inject([StockRetrieverService], (service) => {
-    })));
+    it('should not make duplicate requests for the same symbol', async(inject(
+      [StockRetrieverService, MockBackend], (service, mockBackend) => {
 
-    it('should not make duplicate requests for the same symbol', async(inject([StockRetrieverService], (service) => {
+      let requestInvocationCount = 0;
+
+      mockBackend.connections.subscribe(conn => {
+        conn.mockRespond(new Response(new ResponseOptions({ body: JSON.stringify(mockResponse) })));
+
+        requestInvocationCount++;
+      });
+
+      const result = service.fetch(mockQuote.symbol);
+
+      result.subscribe(res => { });
+      result.subscribe(res => { });
+
+      expect(requestInvocationCount).toBe(1);
     })));
-*/
   });
 });
