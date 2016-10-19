@@ -26,7 +26,7 @@ describe('StockRetrieverService', () => {
   })));
 });
 
-describe('StockRetrieverService Mocked', () => {
+describe('StockRetrieverService (Mocked)', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
@@ -45,6 +45,12 @@ describe('StockRetrieverService Mocked', () => {
       ]
     });
   });
+
+  it('should construct', async(inject(
+    [StockRetrieverService, MockBackend], (service, mockBackend) => {
+
+    expect(service).toBeDefined();
+  })));
 
   describe('fetch', () => {
     const mockQuote = {
