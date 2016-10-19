@@ -26,7 +26,7 @@ describe('StockRetrieverService', () => {
   })));
 });
 
-describe('StockRetrieverService Mocked', () => {
+describe('StockRetrieverService (Mocked)', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
