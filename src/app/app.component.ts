@@ -15,8 +15,8 @@ import { StockRetrieverService } from './stock-retriever.service';
     <input type="text" id="stock-symbol" [(ngModel)]="symbol" />
     <button id="fetch" (click)="fetch()">Fetch</button>
 
-    <current-results [result]="currentResult | async"></current-results>
-    <results-log [result]="currentResult | async"></results-log>
+    <app-current-results [result]="currentResult | async"></app-current-results>
+    <app-results-log [result]="currentResult | async"></app-results-log>
   `
   // For debugging currentResult:
   // <hr />

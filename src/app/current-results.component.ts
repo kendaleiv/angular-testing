@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { StockResult } from './stock-result';
 
 @Component({
-  selector: 'current-results',
+  selector: 'app-current-results',
   template: `
     <h2>Current</h2>
     <div *ngIf="result">
