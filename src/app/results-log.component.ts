@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { StockResult } from './stock-result';
 
 @Component({
-  selector: 'results-log',
+  selector: 'app-results-log',
   template: `
     <h2>History</h2>
     <ul *ngFor="let result of results">
