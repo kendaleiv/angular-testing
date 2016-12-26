@@ -1,10 +1,10 @@
-import { Angular2TestingPage } from './app.po';
+import { AngularTestingPage } from './app.po';
 
-describe('angular2-testing App', function() {
-  let page: Angular2TestingPage;
+describe('angular-testing App', function() {
+  let page: AngularTestingPage;
 
   beforeEach(() => {
-    page = new Angular2TestingPage();
+    page = new AngularTestingPage();
   });
 
   it('should display Stock Symbol label', () => {
