@@ -1,5 +1,5 @@
 {
-  "name": "angular2-testing",
+  "name": "angular-testing",
   "version": "0.0.0",
   "dependencies": {
     "@angular-cli/ast-tools": {
