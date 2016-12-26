@@ -1,8 +1,8 @@
-# Angular 2 Testing
+# Angular Testing
 
 [![Travis CI build](https://travis-ci.org/kendaleiv/angular-testing.svg)](https://travis-ci.org/kendaleiv/angular-testing)
 
-A simple application demonstrating Angular 2 testing.
+A simple application demonstrating Angular testing.
 
 ## Usage
 
