@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CurrentResultsComponent } from './current-results.component';
 import { ResultsLogComponent } from './results-log.component';
 
+import { StockRetrieverService } from './stock-retriever.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,9 @@ import { ResultsLogComponent } from './results-log.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    StockRetrieverService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
