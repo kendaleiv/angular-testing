@@ -6,9 +6,6 @@ import { StockResult } from './stock-result';
 import { StockRetrieverService } from './stock-retriever.service';
 
 @Component({
-  providers: [
-    StockRetrieverService
-  ],
   selector: 'app-root',
   template: `
     <label for="stock-symbol">Stock Symbol:</label>
