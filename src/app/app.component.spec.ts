@@ -2,7 +2,8 @@ import { async, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/from';
 
 import { AppComponent } from './app.component';
 import { CurrentResultsComponent } from './current-results.component';
