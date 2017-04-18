@@ -22,8 +22,7 @@ export class StockRetrieverService {
     const params = new URLSearchParams();
 
     params.set('q', `select * from yahoo.finance.quotes where symbol in ("${symbol}")`);
-    params.set('diagnostics', 'true');
-    params.set('env', 'http://datatables.org/alltables.env');
+    params.set('env', 'store://datatables.org/alltableswithkeys');
     params.set('format', 'json');
 
     return this.http
